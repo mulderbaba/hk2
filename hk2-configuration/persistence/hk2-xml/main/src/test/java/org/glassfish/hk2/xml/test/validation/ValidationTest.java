@@ -37,6 +37,8 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
+// Portions Copyright [2017] [Payara Foundation and/or its affiliates]
+
 package org.glassfish.hk2.xml.test.validation;
 
 import java.net.URL;
@@ -171,7 +173,7 @@ public class ValidationTest {
             Assert.fail("Should not have worked because validation is on");
         }
         catch (MultiException e) {
-            checkMultiException(e, "may not be null");
+            checkMultiException(e, "must not be null");
         }
         
         // Nothing should have changed
@@ -291,7 +293,7 @@ public class ValidationTest {
             Assert.fail("Add of invalid bean should have failed");
         }
         catch (MultiException me) {
-            checkMultiException(me, "may not be null");
+            checkMultiException(me, "must not be null");
         }
         
         List<ValidationChildBean> listChildren = root.getListChildren();
@@ -324,7 +326,7 @@ public class ValidationTest {
             Assert.fail("Add of invalid array child should have failed");
         }
         catch (MultiException me) {
-            checkMultiException(me, "may not be null");
+            checkMultiException(me, "must not be null");
         }
         
         // Make sure we didn't actually add it
@@ -361,7 +363,7 @@ public class ValidationTest {
             Assert.fail("Add of invalid array child should have failed");
         }
         catch (MultiException me) {
-            checkMultiException(me, "may not be null");
+            checkMultiException(me, "must not be null");
         }
         
         Assert.assertNull(root.getDirectChild());
